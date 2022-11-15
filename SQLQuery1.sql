@@ -1,4 +1,7 @@
-﻿exec Usuarios_Agregar 'admin', '123ABC', 'AppTurnos'
+﻿use turnos
+
+exec Usuarios_Agregar 'admin', '123ABC', 'AppTurnos'
+exec Usuarios_Agregar 'CommonUser', '456XYZ', 'AppTurnos'
 
 create procedure Usuarios_Agregar
 	@Usuario	varchar(50),
@@ -11,8 +14,9 @@ values
 	(@Usuario, ENCRYPTByPassPhrase(@PassPhrase, @Contraseña))
 
 exec Usuarios_Validar 'admin', '123ABC', 'AppTurnos'
+exec Usuarios_Validar 'CommonUser', '456XYZ', 'AppTurnos'
 
-alter procedure Usuarios_Validar
+create procedure Usuarios_Validar
 	@Usuario	varchar(50),
 	@Contraseña varchar(50),
 	@PassPhrase varchar(50)

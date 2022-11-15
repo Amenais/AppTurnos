@@ -21,9 +21,9 @@ namespace AppTurnos.web
         {
             string passPhrase = "AppTurnos";
 
-            string conectar = ConfigurationManager.ConnectionStrings["ConexionAppTurnos"].ConnectionString;
+            string cadenaConexion = ConfigurationManager.ConnectionStrings["ConexionAppTurnos"].ConnectionString;
             
-            SqlConnection cnx = new SqlConnection(conectar);
+            SqlConnection cnx = new SqlConnection(cadenaConexion);
             SqlCommand cmd = new SqlCommand("Usuarios_Validar", cnx) { CommandType = CommandType.StoredProcedure };
                         
             cmd.Connection.Open();
@@ -41,6 +41,8 @@ namespace AppTurnos.web
             {
                 LblError.Text = "Error de Usuario o Contraseña";
             }
+
+            cmd.Connection.Close();
         }
     }
 }
