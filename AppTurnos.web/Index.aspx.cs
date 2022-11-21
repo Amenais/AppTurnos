@@ -27,5 +27,10 @@ namespace AppTurnos.web
             Session.Remove("session_usuario");
             Response.Redirect("login.aspx");
         }
+
+        protected void btnCerrarSesion_Click1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
